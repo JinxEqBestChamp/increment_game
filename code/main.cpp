@@ -1,22 +1,32 @@
 #include <iostream>
+#include <vector>
 
-#include "building.hpp"
+#include "structures/struct_base.hpp"
+#include "map.hpp"
+#include "typedef.hpp"
 
 #define MAIN_LOOP false
 
-void run_model();
+void create_miner(uint, uint, Map*, STRUCT, std::vector <OreMiner*>*);
+void run_model(Map*);
 
 int main() {
-    
+    Map* map = new Map();
+
+    std::vector <OreMiner*>* ore_miner;
+
+    create_miner(0, 0, map, STRUCT::coal_miner, ore_miner);
+
     do {
-        run_model();
-        break;
+        run_model(map);
     } while (MAIN_LOOP);
 }
 
-void run_model(){
-    OreMiner* Gurke = new OreMiner(0, 0,"coal");
-    std::cout << Gurke->get_ore() << std::endl;
+void run_model(Map* map){
+    std::cout << map << std::endl;
 }
 
-void hurensohn(){}
+void create_miner(uint x, uint y, Map* map, STRUCT structure, std::vector <OreMiner*>* ore_miner){
+    OreMiner* miner = new OreMiner(0, 0, map, structure);
+    ore_miner->push_back(miner);
+}

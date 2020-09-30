@@ -1,72 +1,89 @@
 #ifndef STRUCTURE_CONST
 #define STRUCTURE_CONST
 
-#include <vector>
-#include <string>
+#include <iostream>
 
-static const std::vector <std::string> VALID_ORES = {
-    "coal", 
-    "iron", 
-    "gold", 
-    "wood", 
-    "stone"
+enum class STRUCT {
+    wood_cutter,
+    stone_miner,
+    iron_miner,
+    gold_miner,
+    trans_liquid,
+    trans_item,
+    trans_gas,
+    coal_miner,
+    store_item,
+    store_liquid,
+    store_gas,
+    water_pump,
 };
 
-static const std::vector <std::string> LANDSCAPES = {
-    "deepwater",
-    "forest",
-    "grass_land",
-    "marianengraben", //unique
-    "oil",
-    "stones",
-    "water", 
-};
+// enum class LANDSCAPES {
+//     forest, 
+//     grass_land, 
+//     stones, 
+//     water,
+// };
 
-//contain valid structures for mountain
-static const std::vector <std::string> VALID_MOUNTAIN = {
-    "coal_miner",
-    "gold_miner",
-    "iron_miner",
-    "stone_miner",
-    "trans_liquid",
-};
+// enum class ORES {
+//     coal, 
+//     wood, 
+//     gold, 
+//     wood, 
+//     stone,
+// };
 
-static const std::vector <std::string> VALID_STONES = {
-    "coal_miner",
-    "stone_miner",
-    "pipe",
-    "trans_item",
-    "trans_liquid",
-    "trans_gas",
-};
+// bool landscape_is_valid(STRUCT building, LANDSCAPES landscape) {
+//     switch (landscape) {
+//         case LANDSCAPES::water          : return water_building         (building);
+//         case LANDSCAPES::grass_land     : return grass_land_building    (building);
+//         case LANDSCAPES::forest         : return forest_building        (building);
+//         case LANDSCAPES::stones         : return stones_building        (building);
+//         default                         : return false;
+//     };
+// }
 
-static const std::vector <std::string> VALID_GRASS_LAND = {
-    "trans_item",
-    "trans_gas"
-    "trans_liquid",
-};
+// bool forest_building(STRUCT building){
+//     switch (building)
+//     {
+//         case STRUCT::trans_gas      : return true; 
+//         case STRUCT::trans_liquid   : return true; 
+//         case STRUCT::trans_item     : return true; 
+//         case STRUCT::wood_cutter    : return true;    
+//         default                     : return false;
+//     }
+// }
 
-static const std::vector <std::string> VALID_FOREST = {
-    "trans_item",
-    "trans_gas",
-    "trans_liquid",
-    "wood_cutter",
-};
+// bool stones_building(STRUCT building){
+//     switch (building){
+//         case STRUCT::trans_item     : return true;
+//         case STRUCT::trans_liquid   : return true;
+//         case STRUCT::trans_gas      : return true;
+//         case STRUCT::stone_miner    : return true;
+//         case STRUCT::coal_miner     : return true;
+//         default                     : return false;
+//     };
+// }
 
-static const std::vector <std::string> VALID_WATER = {
-    "trans_gas",
-    "trans_liquid",
-};
+// bool grass_land_building(STRUCT building){
+//     switch (building){
+//         case STRUCT::trans_item     : return true;
+//         case STRUCT::trans_liquid   : return true;
+//         case STRUCT::trans_gas      : return true;
+//         case STRUCT::store_item     : return true;
+//         case STRUCT::store_gas      : return true;
+//         case STRUCT::store_liquid   : return true;
+//         default                     : return false;
+//     }
+// }
 
-bool landscape_is_valid(std::string building, std::string landscape) {
-    switch (landscape) {
-    case /* constant-expression */:
-        /* code */
-        break;
-    
-    default:
-        break;
-    }
-}
+// bool water_building(STRUCT building){
+//     switch (building){
+//         case STRUCT::trans_gas      : return true;
+//         case STRUCT::trans_liquid   : return true;
+//         case STRUCT::water_pump     : return true;
+//         default                     : return false;
+//     }
+// }
 
 #endif

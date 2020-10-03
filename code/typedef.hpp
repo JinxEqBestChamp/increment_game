@@ -4,12 +4,13 @@
 #include <map>
 #include <vector>
 
-#include "structures/base.hpp"
-#include "structures/ore_miner.hpp"
+class OreMiner;
 
 typedef unsigned int        uint;
 typedef unsigned long int   ulong;
 typedef unsigned short      ushort;
+
+enum class RESOURCES : uint;
 
 typedef std::pair   <uint, uint>        t_koords;
 typedef std::pair   <RESOURCES, ulong>  t_ins_resource;

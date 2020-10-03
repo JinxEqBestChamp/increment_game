@@ -1,3 +1,5 @@
+#ifndef STRUCT_MANAGERS
+#define STRUCT_MANAGERS
 
 #include <iostream>
 #include <vector>
@@ -8,8 +10,6 @@
 #include "base.hpp"
 #include "ore_miner.hpp"
 
-#ifndef STRUCT_MANAGERS
-#define STRUCT_MANAGERS
 
 class OreMinerManager{
     

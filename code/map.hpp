@@ -1,10 +1,10 @@
+#include "typedef.hpp"
+#include "const.hpp"
 
 #include <iostream>
 #include <vector>
 #include <map>
 
-#include "typedef.hpp"
-#include "const.hpp"
 
 #ifndef MAP
 #define MAP

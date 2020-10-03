@@ -1,3 +1,6 @@
+#ifndef STRUCTURES_OREMINER
+#define STRUCTURES_OREMINER
+
 #include <iostream>
 
 #include "../typedef.hpp"
@@ -5,8 +8,6 @@
 
 #include "base.hpp"
 
-#ifndef STRUCTURES_OREMINER
-#define STRUCTURES_OREMINER
 
 class OreMiner : Structure{
     public:

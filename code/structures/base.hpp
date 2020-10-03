@@ -1,3 +1,5 @@
+#ifndef STRUCTURES
+#define STRUCTURES
 
 #include <array>
 #include <iostream>
@@ -10,8 +12,6 @@
 #include "../typedef.hpp"
 #include "../map.hpp"
 
-#ifndef STRUCTURES
-#define STRUCTURES
 
 //every structure is based on this
 class Structure{

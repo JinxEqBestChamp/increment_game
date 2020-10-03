@@ -1,13 +1,13 @@
-#ifndef MAP
-#define MAP
 
 #include <iostream>
 #include <vector>
-#include <array>
-#include <string>
+#include <map>
 
 #include "typedef.hpp"
-#include "structure_const.hpp"
+#include "const.hpp"
+
+#ifndef MAP
+#define MAP
 
 #define LEN_X 10
 #define LEN_Y 10
@@ -40,21 +40,29 @@ class Map{
 
         Map(){
             m_map = vec_2d(LEN_X, std::vector<MapFragment>(LEN_Y));
-        };
+            
+            for (const auto& i_res : RESOURCES()){
+                if ((i_res != RESOURCES::first) && (i_res != RESOURCES::last)){
+                    m_resources.insert(std::pair <RESOURCES, ulong> (i_res, 0));
+                }
+            }
+        }
 
         //getter
-        bool get_available      (uint x, uint y)    const   {return m_map[x][y].get_available();}
-        STRUCT get_structure    (uint x, uint y)    const   {return m_map[x][y].get_structure();}
+        bool get_available      (t_koords koords)   const   {return m_map[koords.first][koords.second].get_available();}
+        STRUCT get_structure    (t_koords koords)   const   {return m_map[koords.first][koords.second].get_structure();}
 
         //setter
-        void set_structure(uint x, uint y, STRUCT structure){
+        void set_structure      (t_koords koords, STRUCT structure){
 
-            if (!this->check_valid_koords(x, y))
+            if (!this->check_valid_koords(koords))
                 return;
 
-            if (m_map[x][y].get_available()){
-                m_map[x][y].set_available(false);
-                m_map[x][y].set_structure(structure);
+            MapFragment& gulasch    = m_map[koords.first][koords.second];
+
+            if (gulasch.get_available()){
+                gulasch.set_available(false);
+                gulasch.set_structure(structure);
             }
         }
 
@@ -62,11 +70,12 @@ class Map{
 
     private:
 
-        vec_2d m_map;
+        vec_2d                      m_map;
+        std::map <RESOURCES, ulong> m_resources;
 
         //true, if koords in map range
-        bool check_valid_koords(uint x, uint y){
-            if (x < LEN_X && y < LEN_Y) return true;
+        bool check_valid_koords(t_koords koords){
+            if (koords.first < LEN_X && koords.second < LEN_Y) return true;
             else return false;
         }
 };
@@ -74,10 +83,10 @@ class Map{
 std::ostream& operator<<(std::ostream& os, const Map* map){
     for (uint x = 0; x < LEN_X; ++x){
         for (uint y = 0; y < LEN_Y; ++y){
-            if (map->get_available(x, y))
+            if (map->get_available(t_koords(x, y)))
                 os << 'A';
             else 
-                os << int(map->get_structure(x, y));
+                os << int(map->get_structure(t_koords(x, y)));
             os << '\t';
         }
         os << "\n\n";

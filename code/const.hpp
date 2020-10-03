@@ -3,7 +3,10 @@
 
 #include <iostream>
 
-enum class STRUCT {
+#include "typedef.hpp"
+
+enum class STRUCT : uint {
+    first,
     wood_cutter,
     stone_miner,
     iron_miner,
@@ -16,7 +19,53 @@ enum class STRUCT {
     store_liquid,
     store_gas,
     water_pump,
+    last,
 };
+
+STRUCT operator++(STRUCT& x){
+    return  x = (STRUCT)(std::underlying_type <STRUCT>::type(x) + 1);
+}
+
+STRUCT operator*(STRUCT c){
+    return  c;
+}
+
+STRUCT begin(STRUCT r) {
+    return  STRUCT::first;
+}
+
+STRUCT end(STRUCT r) {
+    STRUCT  l   = STRUCT::last;
+    return  ++l;
+}
+
+enum class RESOURCES : uint {
+    first,
+    coal, 
+    iron,
+    wood, 
+    gold, 
+    stone,
+    count,
+    last,
+};
+
+RESOURCES operator++(RESOURCES& x){
+    return  x = (RESOURCES)(std::underlying_type <RESOURCES>::type(x) + 1);
+}
+
+RESOURCES operator*(RESOURCES c){
+    return  c;
+}
+
+RESOURCES begin(RESOURCES r) {
+    return  RESOURCES::first;
+}
+
+RESOURCES end(RESOURCES r) {
+    RESOURCES  l   = RESOURCES::last;
+    return  ++l;
+}
 
 // enum class LANDSCAPES {
 //     forest, 
@@ -25,13 +74,6 @@ enum class STRUCT {
 //     water,
 // };
 
-// enum class ORES {
-//     coal, 
-//     wood, 
-//     gold, 
-//     wood, 
-//     stone,
-// };
 
 // bool landscape_is_valid(STRUCT building, LANDSCAPES landscape) {
 //     switch (landscape) {

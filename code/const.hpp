@@ -46,7 +46,6 @@ enum class RESOURCES : uint {
     wood, 
     gold, 
     stone,
-    count,
     last,
 };
 

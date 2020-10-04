@@ -3,7 +3,8 @@
 
 #include <iostream>
 
-#include "../typedef.hpp"
+#include "../../typedef.hpp"
+
 #include "../map.hpp"
 
 #include "base.hpp"

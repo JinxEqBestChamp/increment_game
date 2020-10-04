@@ -9,7 +9,8 @@
 
 //#include "structure_const.hpp"
 
-#include "../typedef.hpp"
+#include "../../typedef.hpp"
+
 #include "../map.hpp"
 
 

@@ -4,7 +4,8 @@
 #include <iostream>
 #include <vector>
 
-#include "../typedef.hpp"
+#include "../../typedef.hpp"
+
 #include "../map.hpp"
 
 #include "base.hpp"
@@ -43,6 +44,9 @@ class OreMinerManager{
             m_miner.push_back(OreMiner(koords, m_map, structure, resource));
             return true;
         }
+
+        
+
 
     private:
 

@@ -1,17 +1,19 @@
 #include <iostream>
 #include <vector>
 
-#include "map.hpp"
 #include "typedef.hpp"
 
-#include "structures/base.hpp"
-#include "structures/managers.hpp"
-#include "structures/ore_miner.hpp"
+#include "models/map.hpp"
+#include "models/structures/base.hpp"
+#include "models/structures/managers.hpp"
+#include "models/structures/ore_miner.hpp"
+
+#include "views/map.hpp"
+#include "views/resources.hpp"
 
 #define MAIN_LOOP false
 
-void create_miner   (t_koords, Map*, STRUCT, std::vector <OreMiner*>*);
-void run_model      (Map*);
+void run_view      (Map* const);
 
 int main() {
     Map*            map     = new Map();
@@ -25,10 +27,11 @@ int main() {
     nigger.create_miner(t_koords(5, 1), STRUCT::coal_miner);
 
     do {
-        run_model(map);
+        run_view(map);
     } while (MAIN_LOOP);
 }
 
-void run_model(Map* map){
-    std::cout << map << std::endl;
+void run_view (Map* const map) {
+    print_map       (map);
+    print_resources (map);
 }
